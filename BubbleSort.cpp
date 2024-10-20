@@ -16,6 +16,9 @@ void BubbleSort(vecotr<int> &nums,int n)
 }
 int main()
 {   
-    vector<int> nums={9,8,7,10,3,2,1};
+    int n; cin>>n;
+    vector<int> nums(n,0);
+    for(int i=0;i<n;i++) cin>>nums[i];
+    BubbleSort(nums,n);
     return 0;
 }
