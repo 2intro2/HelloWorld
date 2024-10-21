@@ -10,7 +10,7 @@ void BubbleSort(vecotr<int> &nums,int n)
     {
         for(int j=1;j<=i;j++)
         {
-            if(nums[j-1]>nums[j]) swap(nums[j-1],nums[j]);
+            if(nums[j-1]<nums[j]) swap(nums[j-1],nums[j]);
         }
     }
     for(auto&x:nums) cout<<x<<' ';
