@@ -2,6 +2,7 @@
 #include<vector>
 using namespace std;
 
+//添加注释
 void BubbleSort(vecotr<int> &nums,int n)
 {   
     bool flag=true;
