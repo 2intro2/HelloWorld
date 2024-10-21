@@ -11,12 +11,13 @@ void BubbleSort(vecotr<int> &nums,int n)
         flag=true;
         for(int j=1;j<=i;j++)
         {
-            if(nums[j-1]>nums[j]) 
+            if(nums[j-1]<nums[j]) 
             {   
                 swap(nums[j-1],nums[j]);
                 flag=false;
             }
             if(flag) break;
+        }
     }
     for(auto&x:nums) cout<<x<<' ';
 }
