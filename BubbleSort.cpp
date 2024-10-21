@@ -3,29 +3,35 @@
 using namespace std;
 
 //添加注释
-void BubbleSort(vecotr<int> &nums,int n)
-{   
-    bool flag=true;
-    for(int i=n-1;i>0;i--)
-    {   
-        flag=true;
-        for(int j=1;j<=i;j++)
-        {
-            if(nums[j-1]<nums[j]) 
-            {   
-                swap(nums[j-1],nums[j]);
-                flag=false;
-            }
-            if(flag) break;
-        }
-    }
-    for(auto&x:nums) cout<<x<<' ';
+int findPos(vector<int>& nums, int l, int r)
+{
+	int val = nums[l];
+	while (l < r)
+	{
+		while (l < r && nums[r] >= val) r--;
+		nums[l] = nums[r];
+		while (l < r && nums[l] <= val) l++;
+		nums[r] = nums[l];
+	}
+	nums[l] = val;
+	return l;
 }
+void QuickSort(vector<int>& nums, int l, int r)
+{
+	if (l < r)
+	{
+		int pos = findPos(nums, l, r);
+		QuickSort(nums, l, pos - 1);
+		QuickSort(nums, pos + 1, r);
+	}
+}
+
 int main()
-{   
-    int n; cin>>n;
-    vector<int> nums(n,0);
-    for(int i=0;i<n;i++) cin>>nums[i];
-    BubbleSort(nums,n);
-    return 0;
+{
+	int n; cin >> n;
+	vector<int> nums(n, 0);
+	for (int i = 0;i < n;i++) cin >> nums[i];
+	QuickSort(nums, 0, n - 1);
+	for (auto& x : nums) cout << x << ' ';
+	return 0;
 }
